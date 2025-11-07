@@ -1,0 +1,7 @@
+add_executable(qwen_infer main_qwen.cpp)
+target_link_directories(qwen_infer PUBLIC ${PROJECT_SOURCE_DIR}/lib)
+find_package(absl REQUIRED)
+find_package(re2 REQUIRED)
+find_package(nlohmann_json REQUIRED)
+target_link_libraries(qwen_infer kyrie absl::base re2::re2 nlohmann_json::nlohmann_json)
+set_target_properties(qwen_infer PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
